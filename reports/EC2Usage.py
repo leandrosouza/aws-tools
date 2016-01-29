@@ -14,7 +14,8 @@ def get_ec2_instances(region):
    			volumesinstance = ec2_conn.get_all_instances(filters=filter)
 			ids = [z for k in volumesinstance for z in k.instances]
 			for s in ids:
-				print s.region,'- Instance ID:' + s.id + ' - Instance Type:' + s.instance_type + ' - Attached Volume ID:' + volumes.id +' - Device Name:' + volumes.attach_data.device
+				print s.region,'- Instance ID:' + s.id + ' - Zone:' + s.placement + ' - Attached Volume ID:' + volumes.id +' - Device Name:' + volumes.attach_data.device
+
 
 
 def main():
